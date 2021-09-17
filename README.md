@@ -1,4 +1,4 @@
-# testing-contracts-with-truffle and deployed to ropsten testnet
+# Testing-contracts-with-truffle and deployed to ropsten testnet
 
 
 ### testing-contracts-with-truffle
