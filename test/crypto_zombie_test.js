@@ -101,16 +101,14 @@ contract("CryptoZombies", (accounts) => {
     })
 
 
-    // extra tests
+    // SOME EXTRA TESTS
 
      /// test: 6
     it("Only owner can approve their zombie", async()=>{
         let result = await contractInstance.createRandomZombie(zombieNames[0], {from: alice});
         let zombieId = result.logs[0].args.zombieId;
-        let res = await contractInstance.approve(bob, zombieId, {from: bob});
-        assert.equal(res.receipt.status, true);
          await truffleAssert.reverts(
-            contractInstance.approve(ammar, zombieId, {from: ammar}),
+            contractInstance.approve(bob, zombieId, {from: bob}),
             ""
         )
     }) 
