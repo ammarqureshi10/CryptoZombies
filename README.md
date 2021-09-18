@@ -1,11 +1,8 @@
-# Testing-contracts-with-truffle and deployed to ropsten testnet
-
+# Cyptozombies.io, Module1 Advance Solidity 
 
 ### Testing contracts with Truffle 
 #### Requirements
 -  chai Javascript testing library
-
-
 
   ## Tested Functionalities
 - A user can create only zombie at a time
@@ -15,20 +12,24 @@
 
 
 
-
-
-## Ropsten Deployment Using Truffle
+# Cyptozombies.io, Module2 Advance Solidity 
+### Contract Deployment Using Truffle
+This Project aim to deploy contract on Ropsten Testnet
 #### Requirements
 -  Install Truffle Globally, npm i truffle -g
 -  Create new Directory and initialize Truffle 
 -  Install HDWallet Provider, npm install truffle truffle-hdwallet-provider
+
+
+### Steps
 -  Copy All Cryptozombies contracts till Lesson 9, Paste it in own ./contracts directory
 -  Create new contract named as CryptoZombies which Inherits from ZombieOwnership (For Better Naming)
--  Setup Migration like,![image](https://user-images.githubusercontent.com/58142882/133895209-ff4a6a46-09a7-4b65-8aca-d359c37006cb.png)
-- Configure File(truffle-config.js)
-- Setup Ropsten Provider using https://infura.io/ 
+- Compile contracts and create migration for CryptoZombies 
+- set network truffle-config.js
 - Create .secret file in root directory and save mnemonic phrases here
-- Compile contracts, using truffle compile
 - Deploy using, truffle migrate --network ropsten 
 ### Note:
 make sure you add .secret in .gitignore before uploading to Github in Future
+
+## Ropsten Link 
+https://ropsten.etherscan.io/tx/0x3998f6d6bfc17526acab55cb50c960b8a38d369b97fb3d432c64d6812b701a10
