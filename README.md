@@ -25,7 +25,7 @@
 -  Copy All Cryptozombies contracts till Lesson 9, Paste it in own ./contracts directory
 -  Create new contract named as CryptoZombies which Inherits from ZombieOwnership (For Better Naming)
 -  Setup Migration like,![image](https://user-images.githubusercontent.com/58142882/133895209-ff4a6a46-09a7-4b65-8aca-d359c37006cb.png)
-- Configuration Files(trruffle-config.js)
+- Configure File(truffle-config.js)
 - Setup Ropsten Provider using https://infura.io/ 
 - Create .secret file in root directory and save mnemonic phrases here
 - Compile contracts, using truffle compile
