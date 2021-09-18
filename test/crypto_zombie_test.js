@@ -30,9 +30,6 @@ contract("CryptoZombies", (accounts) => {
     /// @notice it should reverts
     it("Alice not allowed to create two zombie", async () => {
         let result = await contractInstance.createRandomZombie(zombieNames[0], { from: alice });
-        // Alice try to create another zombie
-        // Since Alice count increase by 1 at first
-        // so transaction will revert 
         await truffleAssert.reverts(
             contractInstance.createRandomZombie(zombieNames[1], { from: alice }),
             ""
@@ -60,9 +57,7 @@ contract("CryptoZombies", (accounts) => {
         it("should approve and then transfer a zombie when the approved address calls transferFrom", async () => {
             let result = await contractInstance.createRandomZombie(zombieNames[0], { from: alice });
             let zombieId = result.logs[0].args.zombieId;
-            // Alice approve zombie to Bob 
             await contractInstance.approve(bob, zombieId, { from: alice });
-            // Bob tries transfer approved zombie to himself
             let tx = await contractInstance.transferFrom(alice, bob, zombieId, { from: bob });
             let newOwner = await contractInstance.ownerOf(zombieId);
             assert.equal(tx.receipt.status, true);
@@ -73,9 +68,7 @@ contract("CryptoZombies", (accounts) => {
         it("should approve and then transfer a zombie when the owner calls transferFrom", async () => {
             let result = await contractInstance.createRandomZombie(zombieNames[0], { from: alice });
             let zombieId = result.logs[0].args.zombieId;
-            // Alice approve zombie to Bob 
             await contractInstance.approve(bob, zombieId, { from: alice });
-            // Alice try to transfer approved zombie to ammar
             let tx = await contractInstance.transferFrom(alice, ammar, zombieId, { from: alice });
             let newOwner = await contractInstance.ownerOf(zombieId);
             assert.equal(tx.receipt.status, true);
@@ -86,15 +79,11 @@ contract("CryptoZombies", (accounts) => {
     /// test: 5
     // stuck here in web3
     xit("should be able to attack the zombie", async()=>{
-        //create a zombie for alice
         let aliceTx = await contractInstance.createRandomZombie(zombieNames[0], {from: alice});
         let aliceZombieId = aliceTx.logs[0].args.zombieId;
-         //create a zombie for bob
         let bobTx = await contractInstance.createRandomZombie(zombieNames[1], {from: bob});
         let bobZombieId = bobTx.logs[0].args.zombieId;
 
-        // alice attack at bob zombie
-        // increase the time 
         await time.increase(time.duration.days(1))
         let result =  await contractInstance.attack(aliceZombieId, bobZombieId, {from: alice});
         assert.equal(result.receipt.status, true);
