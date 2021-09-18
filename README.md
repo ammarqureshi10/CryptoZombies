@@ -1,7 +1,12 @@
 # Testing-contracts-with-truffle and deployed to ropsten testnet
 
 
-### testing-contracts-with-truffle
+### Testing contracts with Truffle 
+#### Requirements
+
+#### Install Truffle
+#### chai Javascript testing library
+
 
   Tested functionalities
 - A user can create only zombie at a time
